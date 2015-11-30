@@ -1,0 +1,9 @@
+---
+applications:
+- name: sccs-client
+  memory: 192M
+  host: sccs-client
+  instances: 1
+  command: gunicorn -w 4 spring-config-client:app
+  env:
+    CONFIG_SERVER: https://config-8052e7ef-088e-4e03-818f-51481f5ae4d3.cfapps.pez.pivotal.io

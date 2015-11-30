@@ -1,9 +1,10 @@
-from flask import Flask, config
+from flask import Flask
 from springboot import EnableAutoConfiguration
+from os import getenv
 
 app = Flask(__name__)
 
-EnableAutoConfiguration(app, appname='foo', profile='production')
+EnableAutoConfiguration(app, appname='foo', profile='production', config_server=getenv('CONFIG_SERVER', None))
 
 
 @app.route('/')
